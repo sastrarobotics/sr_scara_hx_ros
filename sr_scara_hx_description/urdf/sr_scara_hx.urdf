@@ -13,96 +13,89 @@
    </material>
  </visual>
  <collision>
-  
+  <origin xyz="0 0 0.097" rpy="0 0 0" />
+   <geometry>
+     <mesh filename="package://sr_scara_hx_description/meshes/base.stl" scale="0.001 0.001 0.001"/>  
+   </geometry>
  </collision>  
 </link>
 
-
-
-
 <link name="link1">
  <visual>
-
   <origin xyz="0 0 0" rpy="0 0 0" />
-
-  <geometry>
+   <geometry>
      <mesh filename="package://sr_scara_hx_description/meshes/link1.stl" scale="0.001 0.001 0.001"/>  
-  </geometry>
-	
-  <material name="green">
+   </geometry>
+   <material name="green">
      <color rgba="0.1 0.85 0.1 1"/>
-  </material>
+   </material>
  </visual>
-
-
+ <collision>
+  <origin xyz="0 0 0" rpy="0 0 0" />
+   <geometry>
+     <mesh filename="package://sr_scara_hx_description/meshes/link1.stl" scale="0.001 0.001 0.001"/>  
+   </geometry>
+ </collision>
 </link>
 
-
-
 <joint name="joint1" type="revolute">
-	<axis xyz="0 0 1" /> 
-	<limit effort="3.0" velocity="0.01" lower="-2.617" upper="2.617"/>
-	<origin xyz="0 0 0.097" rpy="0 0 0" />
-   
-   	<parent link="base_link" />
-  	 <child link="link1" />
+  <axis xyz="0 0 1" /> 
+  <limit effort="3.0" velocity="0.01" lower="-2.617" upper="2.617"/>
+  <origin xyz="0 0 0.097" rpy="0 0 0" />
+  <parent link="base_link" />
+  <child link="link1" />
 </joint>
-
 
 <link name="link2">
  <visual>
-
   <origin xyz="-0.198 0 0" rpy="0 0 0" />
-
-  <geometry>
+   <geometry>
      <mesh filename="package://sr_scara_hx_description/meshes/link2.stl" scale="0.001 0.001 0.001"/>  
-  </geometry>
-	
-  <material name="redg">
+   </geometry>
+   <material name="redg">
      <color rgba="0.5 0.85 0.1 1"/>
-  </material>
+   </material>
  </visual>
-
-
+ <collision>
+  <origin xyz="-0.198 0 0" rpy="0 0 0" />
+   <geometry>
+     <mesh filename="package://sr_scara_hx_description/meshes/link2.stl" scale="0.001 0.001 0.001"/>  
+   </geometry>
+  </collision>
 </link>
 
-
-
 <joint name="joint2" type="revolute">
-	<axis xyz="0 0 1" /> 
-	<limit effort="3.0" velocity="0.01" lower="-2.617" upper="2.617"/>
-	<origin xyz="0.198 0 0" rpy="0 0 0" />
-   
-   	<parent link="link1" />
-  	 <child link="link2" />
+ <axis xyz="0 0 1" /> 
+ <limit effort="3.0" velocity="0.01" lower="-2.617" upper="2.617"/>
+ <origin xyz="0.198 0 0" rpy="0 0 0" />
+ <parent link="link1" />
+ <child link="link2" />
 </joint>
-
 
 <link name="probe">
  <visual>
-
   <origin xyz="-0.344 0 0" rpy="0 0 0" />
-
   <geometry>
      <mesh filename="package://sr_scara_hx_description/meshes/probe.stl" scale="0.001 0.001 0.001"/>  
   </geometry>
-	
   <material name="blue">
      <color rgba="0.1 0.1 0.7 1"/>
   </material>
  </visual>
-
-
+ <collision>
+  <origin xyz="-0.344 0 0" rpy="0 0 0" />
+  <geometry>
+     <mesh filename="package://sr_scara_hx_description/meshes/probe.stl" scale="0.001 0.001 0.001"/>  
+  </geometry>
+ </collision>
 </link>
 
 <joint name="joint3" type="prismatic">
-	<axis xyz="0 0 1" /> 
-	<limit effort="3.0" velocity="0.01" lower="0" upper="0.1"/>
-	<origin xyz="0.146 0 0" rpy="0 0 0" />
-   
-   	<parent link="link2" />
-  	 <child link="probe" />
+ <axis xyz="0 0 1" /> 
+ <limit effort="3.0" velocity="0.01" lower="0" upper="0.1"/>
+ <origin xyz="0.146 0 0" rpy="0 0 0" />
+ <parent link="link2" />
+ <child link="probe" />
 </joint>
-
 
 </robot>
