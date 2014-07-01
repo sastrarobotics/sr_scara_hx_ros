@@ -82,6 +82,14 @@
    </geometry>
  </visual>
 </link>
+<link name = "gripper_dummy">
+ <visual>
+  <origin xyz ="0 0 -0.095" rpy="0 0 0" />
+   <geometry>
+     <box size="0.06 .02 .01"/>
+   </geometry>
+ </visual>
+</link>
 
 <!-- Joints -->
 
@@ -109,10 +117,18 @@
  <child link="probe" />
 </joint>
 
-<joint name ="gripper_con" type="fixed">
+<joint name ="gripper_con" type="revolute">
+ <axis xyz="0 0 1" /> 
+ <limit effort="3.0" velocity="0.01" lower="-3" upper="3"/>
  <origin rpy="0 0 0" xyz="0 0 0"/>
  <parent link = "probe"/>
  <child link = "gripper_base" />
+</joint>
+
+<joint name ="gripper_dummy" type="fixed">
+ <origin rpy="0 0 0" xyz="0 0 0"/>
+ <parent link = "gripper_base"/>
+ <child link = "gripper_dummy" />
 </joint>
 
 <!-- Transmissions -->

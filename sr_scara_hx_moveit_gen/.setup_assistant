@@ -5,4 +5,4 @@ moveit_setup_assistant_config:
   SRDF:
     relative_path: config/sr_scara_hx.srdf
   CONFIG:
-    generated_timestamp: 1403769289
+    generated_timestamp: 1404210550

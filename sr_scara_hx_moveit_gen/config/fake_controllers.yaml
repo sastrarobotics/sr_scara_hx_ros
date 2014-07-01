@@ -1,6 +1,10 @@
 controller_list:
-  - name: fake_arm_controller
+  - name: fake_scara_arm_controller
     joints:
       - joint1
       - joint2
       - joint3
+      - gripper_con
+  - name: fake_scara_hand_controller
+    joints:
+      []
