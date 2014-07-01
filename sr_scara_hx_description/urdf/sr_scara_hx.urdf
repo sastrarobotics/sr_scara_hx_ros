@@ -74,6 +74,15 @@
  </collision>
 </link>
 
+<link name = "gripper_base">
+ <visual>
+  <origin xyz ="0 0 -0.085" rpy="0 0 0" />
+   <geometry>
+     <box size="0.06 .02 .01"/>
+   </geometry>
+ </visual>
+</link>
+
 <!-- Joints -->
 
 <joint name="joint1" type="revolute">
@@ -100,6 +109,11 @@
  <child link="probe" />
 </joint>
 
+<joint name ="gripper_con" type="fixed">
+ <origin rpy="0 0 0" xyz="0 0 0"/>
+ <parent link = "probe"/>
+ <child link = "gripper_base" />
+</joint>
 
 <!-- Transmissions -->
 
