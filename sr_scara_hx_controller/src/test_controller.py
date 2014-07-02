@@ -1,0 +1,31 @@
+import rospy
+from sensor_msgs.msg import JointState
+
+num_joints = 4
+
+
+
+def joint_state_publisher():
+    pub = rospy.Publisher('sr_joint_states', JointState)
+    rospy.init_node('sr_jnt_stt')
+    
+    r = rospy.Rate(10)
+    while not rospy.is_shutdown():
+        msg = JointState()
+        msg.header.stamp = rospy.Time.now()
+        msg.position = num_joints * [0.0]
+        msg.velocity = num_joints * [0.0]
+        #msg.effort = num_joints * [0.0]
+        msg.name =  ['joint1', 'joint2', 'joint3', 'gripper_con']
+        msg.position[0] = 1.0
+        msg.position[1] =0.2
+        msg.position[2] =0.3
+        msg.position[3] =0.4
+        pub.publish(msg)
+        r.sleep()
+
+
+if __name__ == '__main__':
+    try:
+        joint_state_publisher()
+    except rospy.ROSInterruptException: pass
