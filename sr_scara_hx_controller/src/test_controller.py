@@ -24,8 +24,8 @@ def joint_state_publisher():
         msg.name =  ['joint1', 'joint2', 'joint3', 'gripper_con']
         msg.position[0] = math.radians(herkulex.get_servo_angle(1))
         msg.position[1] = math.radians(herkulex.get_servo_angle(2))
-        msg.position[2] =0.3
-        msg.position[3] =0.4
+        msg.position[2] =0.0
+        msg.position[3] =0.0
         pub.publish(msg)
         r.sleep()
 
