@@ -1,5 +1,5 @@
 controller_list:
-  - name: scara_arm_controller
+  - name: fake_scara_arm_controller
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
     default: true
@@ -8,9 +8,6 @@ controller_list:
       - joint2
       - joint3
       - gripper_con
-  - name: scara_hand_controller
-    action_ns: follow_joint_trajectory
-    type: FollowJointTrajectory
-    default: true
+  - name: fake_scara_hand_controller
     joints:
       []
