@@ -18,7 +18,7 @@ from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 
 class SR_TrajectoryFollower:
 	def __init__(self):
-		self.server = actionlib.SimpleActionServer("scara_arm_controller/follow_joint_trajectory", FollowJointTrajectoryAction, self.execute, auto_start=False)
+		self.server = actionlib.SimpleActionServer("follow_joint_trajectory", FollowJointTrajectoryAction, self.execute, auto_start=False)
 
 	def execute(self, goal):
 		print "I am executing and I got the goal:", goal
