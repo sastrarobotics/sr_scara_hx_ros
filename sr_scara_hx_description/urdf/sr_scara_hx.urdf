@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot name="sr_scara_hx">
-
+<!--TODO : Add  componenents like mass, inertia matrix, controllers etc for gazebo -->
 <!--Links -->
 <link name="base_link">
  <visual>
