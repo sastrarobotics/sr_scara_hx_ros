@@ -1,8 +1,11 @@
+# code to interface the hardware
+# TODO - Integrate JointTrajectoryAction server
+#      - Enable & disable torque service
+#      - Set PID of joints as service or param
 import rospy
 import herkulex
 import math
 from sensor_msgs.msg import JointState
-
 num_joints = 4
 herkulex.connect("/dev/ttyUSB0",115200)
 herkulex.torque_off(1)
