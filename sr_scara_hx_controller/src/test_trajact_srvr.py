@@ -50,7 +50,23 @@ class SR_TrajectoryFollower:
 		self.server = actionlib.SimpleActionServer("scara_arm_controller/follow_joint_trajectory", FollowJointTrajectoryAction, self.execute, auto_start=False)
 
 	def execute(self, goal):
-		print "I am executing and I got the goal:", goal.trajectory.points.positions
+		print "I am executing and I got the goal:"#, goal.trajectory.points
+                joint_names = goal.trajectory.joint_names
+                trajectory_points = goal.trajectory.points
+                num_points = len(trajectory_points)
+                end_time = trajectory_points[-1].time_from_start.to_sec()
+                pnt_times = [pnt.time_from_start.to_sec() for pnt in trajectory_points]
+                pnt_positions =[pn.positions for pn in trajectory_points]
+                #print joint_names , num_points, end_time , pnt_times, pnt_positions
+                #print pnt_positions[0]
+                #start_point = JointTrajectoryPoint()
+                #start_point.positions = self._get_current_position(joint_names)
+                for pnts in range(num_points):
+                    #print pnt_positions[pnts]
+                    #print " joint1 ", math.degrees(pnt_positions[pnts][1]),"joint2",math.degrees(pnt_positions[pnts][2])
+                    herkulex.set_servo_angle(1,math.degrees(pnt_positions[pnts][1]),100,0x08)
+                    herkulex.set_servo_angle(2,math.degrees(pnt_positions[pnts][2]),100,0x08)
+                self.server.set_succeeded()
 
 	def start(self):
 		self.server.start()
